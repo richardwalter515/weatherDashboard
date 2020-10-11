@@ -1,3 +1,18 @@
 body {
     background-image: url("https://www.treehugger.com/thmb/ChZWC2sKLuWJqeLUSUltBTgRCZs=/3840x2160/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2016__08__ohara-japan-meadow-69e313a8d8aa4c9cbc3076095c994049.jpg");
 }
+
+.danger {
+    background-color: crimson;
+    color: white;
+}
+
+.average {
+    background-color: darkorange;
+    color: white;
+}
+
+.good {
+    background-color: green;
+    color: white;
+}
