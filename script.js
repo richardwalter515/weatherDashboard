@@ -52,10 +52,42 @@ $(document).ready(function(){
         }).then(function(response) {
             console.log('five day:', response)
             var fiveDayBody = $('#five-day-forecast');
-            var fiveDay = $('<img>').html(response.list[0]).addClass('card-text');
+            //create the days
+            //can this be done in for loop?
+                var dayOne = $('<div>').addClass('five-day');
+                    var dayDate = $('<p>').text(response.list[0].dt_txt).addClass('h5');
+                    var iconID = (response.list[0].weather[0].icon);
+                    var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                    var dayTempF = (response.list[0].main.temp - 273.15) * 1.8 + 32;
+                    var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
+                    var dayHum = $('<p>').text("Humidity: " + response.list[0].main.humidity + "%").addClass('card-text');
+                
+                //append day items to day
+                dayOne.append(dayDate, dayImg, dayTemp, dayHum);
 
-            // Append the five day forecast img to the fiveDayForecast card
-            fiveDayBody.append(fiveDay);
+                var dayTwo = $('<div>').addClass('five-day');
+                    var dayDate = $('<p>').text(response.list[8].dt_txt).addClass('h5');
+                    var iconID = (response.list[8].weather[0].icon);
+                    var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                    var dayTempF = (response.list[8].main.temp - 273.15) * 1.8 + 32;
+                    var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
+                    var dayHum = $('<p>').text("Humidity: " + response.list[8].main.humidity + "%").addClass('card-text');
+                
+                //append day items to day
+                dayTwo.append(dayDate, dayImg, dayTemp, dayHum);
+
+                var dayThree = $('<div>').addClass('five-day');
+                    var dayDate = $('<p>').text(response.list[16].dt_txt).addClass('h5');
+                    var iconID = (response.list[16].weather[0].icon);
+                    var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                    var dayTempF = (response.list[16].main.temp - 273.15) * 1.8 + 32;
+                    var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
+                    var dayHum = $('<p>').text("Humidity: " + response.list[16].main.humidity + "%").addClass('card-text');
+                
+                //append day items to day
+                dayThree.append(dayDate, dayImg, dayTemp, dayHum);
+            // Append the days to the fiveDayForecast card
+            fiveDayBody.append(dayOne, dayTwo, dayThree);
         });
         //save City name to local storage, then append as a button to the "searched cities" div so user can see previously searched cities
         //when clicked, change city variable to text of button and repeat the functions above

@@ -16,3 +16,10 @@ body {
     background-color: green;
     color: white;
 }
+
+.five-day {
+    background-color: lightgrey;
+    padding: 5px;
+    width: 200px;
+    height: 250px;
+}
