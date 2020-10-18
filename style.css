@@ -22,4 +22,5 @@ body {
     padding: 5px;
     width: 200px;
     height: 250px;
+    display: grid;
 }

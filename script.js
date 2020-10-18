@@ -18,9 +18,10 @@ $(document).ready(function(){
             }).then(function(response) {
                 console.log('response:', response)
                 var cityBody = $('#current-city-stats');
+                var currentDate = moment().format('LL');
                 var iconID = (response.weather[0].icon);
                 var cityImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
-                var cityName = $('<h5>').text(city).addClass('card-title');
+                var cityName = $('<h5>').text(city + " - " + currentDate).addClass('card-title');
                 var tempF = (response.main.temp - 273.15) * 1.8 + 32;
                 var cityTemp = $('<p>').text("Temperature: " + tempF.toFixed(1) + " °F").addClass('card-text');
                 var cityHum = $('<p>').text("Humidity: " + response.main.humidity + "%").addClass('card-text');
@@ -57,9 +58,8 @@ $(document).ready(function(){
                 console.log('five day:', response)
                 var fiveDayBody = $('#five-day-forecast');
                 //create the days
-                //can this be done in for loop?
                     var dayOne = $('<div>').addClass('five-day');
-                        var dayDate = $('<p>').text(response.list[0].dt_txt).addClass('h5');
+                        var dayDate = $('<p>').text(moment(response.list[0].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[0].weather[0].icon);
                         var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[0].main.temp - 273.15) * 1.8 + 32;
@@ -70,7 +70,7 @@ $(document).ready(function(){
                     dayOne.append(dayDate, dayImg, dayTemp, dayHum);
     
                     var dayTwo = $('<div>').addClass('five-day');
-                        var dayDate = $('<p>').text(response.list[8].dt_txt).addClass('h5');
+                        var dayDate = $('<p>').text(moment(response.list[8].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[8].weather[0].icon);
                         var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[8].main.temp - 273.15) * 1.8 + 32;
@@ -81,7 +81,7 @@ $(document).ready(function(){
                     dayTwo.append(dayDate, dayImg, dayTemp, dayHum);
     
                     var dayThree = $('<div>').addClass('five-day');
-                        var dayDate = $('<p>').text(response.list[16].dt_txt).addClass('h5');
+                        var dayDate = $('<p>').text(moment(response.list[16].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[16].weather[0].icon);
                         var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[16].main.temp - 273.15) * 1.8 + 32;
@@ -92,7 +92,7 @@ $(document).ready(function(){
                     dayThree.append(dayDate, dayImg, dayTemp, dayHum);
     
                     var dayFour = $('<div>').addClass('five-day');
-                        var dayDate = $('<p>').text(response.list[24].dt_txt).addClass('h5');
+                        var dayDate = $('<p>').text(moment(response.list[24].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[24].weather[0].icon);
                         var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[24].main.temp - 273.15) * 1.8 + 32;
@@ -103,7 +103,7 @@ $(document).ready(function(){
                     dayFour.append(dayDate, dayImg, dayTemp, dayHum);
     
                     var dayFive = $('<div>').addClass('five-day');
-                        var dayDate = $('<p>').text(response.list[32].dt_txt).addClass('h5');
+                        var dayDate = $('<p>').text(moment(response.list[32].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[32].weather[0].icon);
                         var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[32].main.temp - 273.15) * 1.8 + 32;
@@ -118,7 +118,8 @@ $(document).ready(function(){
 
         }
         //save City name to local storage, then append as a button to the "searched cities" div so user can see previously searched cities
-        //when clicked, change city variable to text of button and repeat the functions above
+        //when clicked, change city variable to text of button and repeat the functions above 
+        //put it in an array and then append the buttons and make the buttons from the array.  reference the 
         function createCityBtn() {
             var prevCity = localStorage.getItem("previous city");
             var newCityBtn = $('<button>').text(prevCity);
