@@ -119,7 +119,6 @@ $(document).ready(function(){
         }
         //save City name to local storage, then append as a button to the "searched cities" div so user can see previously searched cities
         //when clicked, change city variable to text of button and repeat the functions above 
-        //put it in an array and then append the buttons and make the buttons from the array.  reference the 
         function createCityBtn() {
             var prevCity = localStorage.getItem("previous city");
             var newCityBtn = $('<button>').text(prevCity);
