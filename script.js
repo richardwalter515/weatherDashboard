@@ -21,7 +21,7 @@ $(document).ready(function(){
                 var cityBody = $('#current-city-stats');
                 var currentDate = moment().format('LL');
                 var iconID = (response.weather[0].icon);
-                var cityImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                var cityImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                 var cityName = $('<h5>').text(city + " - " + currentDate).addClass('card-title');
                 var tempF = (response.main.temp - 273.15) * 1.8 + 32;
                 var cityTemp = $('<p>').text("Temperature: " + tempF.toFixed(1) + " °F").addClass('card-text');
@@ -31,7 +31,7 @@ $(document).ready(function(){
                 var lat = response.coord.lat;
     
                 //query and display UV index
-                var queryUV = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
+                var queryUV = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
                 $.ajax({
                     url: queryUV,
                     method: "GET"
@@ -51,7 +51,7 @@ $(document).ready(function(){
             });
     
             //display five day forecast
-            var queryFiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
+            var queryFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
             $.ajax({
                 url: queryFiveDay,
                 method: "GET"
@@ -62,7 +62,7 @@ $(document).ready(function(){
                     var dayOne = $('<div>').addClass('five-day');
                         var dayDate = $('<p>').text(moment(response.list[0].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[0].weather[0].icon);
-                        var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                        var dayImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[0].main.temp - 273.15) * 1.8 + 32;
                         var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
                         var dayHum = $('<p>').text("Humidity: " + response.list[0].main.humidity + "%").addClass('card-text');
@@ -73,7 +73,7 @@ $(document).ready(function(){
                     var dayTwo = $('<div>').addClass('five-day');
                         var dayDate = $('<p>').text(moment(response.list[8].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[8].weather[0].icon);
-                        var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                        var dayImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[8].main.temp - 273.15) * 1.8 + 32;
                         var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
                         var dayHum = $('<p>').text("Humidity: " + response.list[8].main.humidity + "%").addClass('card-text');
@@ -84,7 +84,7 @@ $(document).ready(function(){
                     var dayThree = $('<div>').addClass('five-day');
                         var dayDate = $('<p>').text(moment(response.list[16].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[16].weather[0].icon);
-                        var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                        var dayImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[16].main.temp - 273.15) * 1.8 + 32;
                         var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
                         var dayHum = $('<p>').text("Humidity: " + response.list[16].main.humidity + "%").addClass('card-text');
@@ -95,7 +95,7 @@ $(document).ready(function(){
                     var dayFour = $('<div>').addClass('five-day');
                         var dayDate = $('<p>').text(moment(response.list[24].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[24].weather[0].icon);
-                        var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                        var dayImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[24].main.temp - 273.15) * 1.8 + 32;
                         var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
                         var dayHum = $('<p>').text("Humidity: " + response.list[24].main.humidity + "%").addClass('card-text');
@@ -106,7 +106,7 @@ $(document).ready(function(){
                     var dayFive = $('<div>').addClass('five-day');
                         var dayDate = $('<p>').text(moment(response.list[32].dt_txt).format('ddd, MMM Do YYYY')).addClass('h5');
                         var iconID = (response.list[32].weather[0].icon);
-                        var dayImg = $('<img>').attr("src", "http://openweathermap.org/img/wn/" + iconID + "@2x.png");
+                        var dayImg = $('<img>').attr("src", "https://openweathermap.org/img/wn/" + iconID + "@2x.png");
                         var dayTempF = (response.list[32].main.temp - 273.15) * 1.8 + 32;
                         var dayTemp = $('<p>').text("Temperature: " + dayTempF.toFixed(1) + " °F").addClass('card-text');
                         var dayHum = $('<p>').text("Humidity: " + response.list[32].main.humidity + "%").addClass('card-text');

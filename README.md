@@ -7,7 +7,7 @@ For each city you enter, a button will be created, and if you click on that butt
 You can find the weather dashboard here: https://richardwalter515.github.io/weatherDashboard/
 
 On application open:
-![startofquiz](assets/startPage.png)
+![startPage](Assets/startPage.png)
 
 Example of display:
-![enterinitials](assets/searchDemo.png)
+![searchDemo](Assets/searchDemo.png)
