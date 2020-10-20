@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     $('#search-btn').on('click', function (event) {
         //clear city currently displayed
         $('#current-city-stats').empty();
@@ -7,8 +8,8 @@ $(document).ready(function(){
         
         //display current city data
         var city = $('#city-search').val().trim();
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
         localStorage.setItem("previous city", city);
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a34bf7af6120a0c5529fd1e8e51ee64b";
         createCityBtn();
         fillCity();
         function fillCity() {
