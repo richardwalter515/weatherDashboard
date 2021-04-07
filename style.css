@@ -1,5 +1,6 @@
 body {
     background-image: url("https://www.treehugger.com/thmb/ChZWC2sKLuWJqeLUSUltBTgRCZs=/3840x2160/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2016__08__ohara-japan-meadow-69e313a8d8aa4c9cbc3076095c994049.jpg");
+    background-size: 100% 100%;
 }
 
 .danger {
@@ -18,9 +19,29 @@ body {
 }
 
 .five-day {
-    background-color: lightgrey;
+    background-color: rgb(187, 219, 255);
     padding: 5px;
     width: 200px;
     height: 250px;
     display: inline-block;
+    margin: auto;
+    width: 20%;
+    border: 2px;
+    border-style: double;
+    border-color: rgb(51, 0, 146);
+}
+
+#citySearch {
+    height: 150px;
+    background-color: rgb(187, 219, 255);
+}
+
+#current-city-stats {
+    background-color: rgb(187, 219, 255);
+    width: 100%;
+}
+
+.centerStuff {
+    margin: auto;
+    width: 75%;
 }
